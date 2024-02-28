@@ -6,7 +6,7 @@ export default async function Page({ params }) {
   return (
     <div>
       <h1>{shoe.shoe_name}</h1>
-      <p>shoe page - dynamic route</p>
+      <p>{shoe.description}</p>
     </div>
   );
 }
