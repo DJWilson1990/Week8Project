@@ -1,24 +1,39 @@
 import { sql } from "@vercel/postgres";
-import Link from "next/link";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import SubmitBtn from "@/app/components/SubmitBtn";
 
 export default async function Page({ params }) {
-  const shoes = (await sql`SELECT * FROM shoes WHERE id = ${params.id}`)
-    .rows[0];
+  async function handleReview(formData) {
+    "use server";
+    const review = formData.get("review");
+    const rating = Number(formData.get("rating"));
+    const shoe_id = Number(params.id);
 
-  const reviews = (
-    await sql`SELECT * FROM reviews WHERE reviews.shoe_id = ${params.id}`
-  ).rows;
+    await sql`INSERT INTO reviews (review, rating, shoe_id) VALUES (${review}, ${rating}, ${shoe_id})`;
+
+    revalidatePath(`/shoes/${shoe_id}}`);
+
+    redirect(`/shoes/${shoe_id}`);
+  }
 
   return (
     <div>
-      <p>{shoes.shoe_name}</p>
-      {reviews.map((review) => (
-        <div key={review.id}>
-          <Link href={`/review/${reviews.shoe_id}`}>
-            {/* <p>{reviews.review}</p> */}
-          </Link>
-        </div>
-      ))}
+      <form
+        action={handleReview}
+        className="m-4 p-4 flex flex-col justify-center mx-auto"
+      >
+        <label className="m-4">Review</label>
+        <textarea className="m-4 border" name="review" placeholder="Review" />
+        <label className="m-4">Rating</label>
+        <input
+          className="m-4 border"
+          name="rating"
+          placeholder="Rating"
+          type="number"
+        />
+        <SubmitBtn />
+      </form>
     </div>
   );
 }

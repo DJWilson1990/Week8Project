@@ -5,13 +5,22 @@ import ReviewBtn from "@/app/components/ReviewBtn";
 export default async function Page({ params }) {
   const shoe = (await sql`SELECT * FROM shoes WHERE id = ${params.id}`).rows[0];
 
+  const reviews = (
+    await sql`SELECT * FROM reviews WHERE reviews.shoe_id = ${params.id}`
+  ).rows;
+
   return (
     <div>
-      <Link href={`/review/${shoe.id}`}>
-        <h1>{shoe.shoe_name}</h1>
-      </Link>
+      <h1>{shoe.shoe_name}</h1>
       <p>{shoe.description}</p>
-      <ReviewBtn />
+      <ReviewBtn link={`/review/${shoe.id}`} />
+      {reviews.map((review) => (
+        <div key={review.id}>
+          <Link href={`/review/${shoe.id}`}>
+            <p>{review.review}</p>
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }
