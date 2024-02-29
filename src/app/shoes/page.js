@@ -1,8 +1,9 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
+import { getShoes } from "../utils/utils";
 
 export default async function Page() {
-  const shoes = (await sql`SELECT * FROM shoes`).rows;
+  const shoes = await getShoes();
 
   return (
     <div className="flex flex-row flex-wrap justify-center">
@@ -13,7 +14,7 @@ export default async function Page() {
         >
           <Link href={`/shoes/${shoe.id}`}>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
-            <p className="text-sm m-2">{shoe.description}</p>
+            <p className="text-sm m-2">{shoe.short_description}</p>
           </Link>
         </div>
       ))}

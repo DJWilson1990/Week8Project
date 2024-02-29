@@ -1,8 +1,9 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
+import { getBrands } from "../utils/utils";
 
 export default async function Page() {
-  const brands = (await sql`SELECT * FROM brands`).rows;
+  const brands = await getBrands();
 
   return (
     <div className="flex flex-row flex-wrap justify-center">

@@ -12,7 +12,7 @@ export default async function Page({ params }) {
 
     await sql`INSERT INTO reviews (review, rating, shoe_id) VALUES (${review}, ${rating}, ${shoe_id})`;
 
-    revalidatePath(`/shoes/${shoe_id}}`);
+    revalidatePath(`/shoes/${shoe_id}`);
 
     redirect(`/shoes/${shoe_id}`);
   }

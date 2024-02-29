@@ -11,7 +11,7 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      <h1>{shoe.shoe_name}</h1>
+      <h1 className="text-lg font-bold">{shoe.shoe_name}</h1>
       <p>{shoe.description}</p>
       <ReviewBtn link={`/review/${shoe.id}`} />
       {reviews.map((review) => (

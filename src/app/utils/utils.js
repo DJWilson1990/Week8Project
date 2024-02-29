@@ -8,6 +8,6 @@ export async function getBrands() {
 }
 
 export async function getShoes() {
-  const shoes = (await sql`SELECT shoe_name FROM shoes`).rows;
+  const shoes = (await sql`SELECT * FROM shoes`).rows;
   return shoes;
 }
