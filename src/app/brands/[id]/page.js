@@ -13,7 +13,7 @@ export default async function Page({ params }) {
     <div>
       <h1 className="m-4 text-xl font-bold text-center">{brand.brand_name}</h1>
       {shoes.map((shoe) => (
-        <div key={shoe.id} className="border m-4">
+        <div key={shoe.id} className="border m-4 p-2">
           <Link href={`/shoes/${shoe.id}`}>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
           </Link>

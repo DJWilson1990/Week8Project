@@ -30,7 +30,7 @@ export default async function Page() {
       >
         <label className="m-4">
           Select Brand:
-          <select name="brands" id="brands">
+          <select name="brands" id="brands" className="m-4">
             {brands.map((brands) => (
               <option key={brands.id}>{brands.brand_name}</option>
             ))}
@@ -38,7 +38,7 @@ export default async function Page() {
         </label>
         <label className="m-4">
           Select Shoe:
-          <select name="shoes" id="shoes">
+          <select name="shoes" id="shoes" className="m-4">
             {shoes.map((shoes) => (
               <option key={shoes.id}>{shoes.shoe_name}</option>
             ))}
