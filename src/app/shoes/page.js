@@ -6,7 +6,7 @@ export default async function Page() {
 
   return (
     <div>
-      <p>shoes page</p>
+      <p>Shoes page</p>
       {shoes.map((shoe) => (
         <div key={shoe.id}>
           <Link href={`/shoes/${shoe.id}`}>

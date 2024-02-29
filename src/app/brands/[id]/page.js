@@ -23,3 +23,5 @@ export default async function Page({ params }) {
     </div>
   );
 }
+
+// add reviews to this page! think cards with shoe image, name, description, review. and button to 'add review' linking to reviews!

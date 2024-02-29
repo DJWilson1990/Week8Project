@@ -1,7 +1,8 @@
-import { Inter } from "next/font/google";
+import { Inter, Archivo, Archivo_Narrow } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+export const main_font = Archivo_Narrow({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
