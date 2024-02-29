@@ -11,7 +11,7 @@ export default function SubmitBtn() {
       <button
         disabled={pending}
         type="submit"
-        className="m-2 p-2 border font-Archivo_Narrow"
+        className="m-4 p-2 border font-main_font"
       >
         {pending ? "Adding review..." : "Add review"}
       </button>

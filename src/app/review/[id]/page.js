@@ -14,7 +14,7 @@ export default async function Page({ params }) {
       <p>{shoes.shoe_name}</p>
       {reviews.map((review) => (
         <div key={review.id}>
-          <Link href={`/reviews/${reviews.shoe_id}`}>
+          <Link href={`/review/${reviews.shoe_id}`}>
             {/* <p>{reviews.review}</p> */}
           </Link>
         </div>
