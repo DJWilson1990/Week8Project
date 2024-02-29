@@ -17,7 +17,7 @@ export default async function Page({ params }) {
           <Link href={`/shoes/${shoe.id}`}>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
           </Link>
-          <p>{shoe.description}</p>
+          <p>{shoe.short_description}</p>
         </div>
       ))}
     </div>
