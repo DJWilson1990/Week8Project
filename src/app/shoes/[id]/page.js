@@ -24,7 +24,7 @@ export default async function Page({ params }) {
           <p>{review.rating} Stars</p>
           <div className="flex justify-between items-center">
             <p className="font-semibold">{review.name}</p>
-            <DeleteBtn />
+            <DeleteBtn id={review.id} />
           </div>
         </div>
       ))}

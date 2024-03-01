@@ -1,7 +1,9 @@
+import AnimateTitle from "./components/AnimateTitle";
+
 export default function Page() {
   return (
     <div>
-      <h1>Hello</h1>
+      <AnimateTitle />
     </div>
   );
 }

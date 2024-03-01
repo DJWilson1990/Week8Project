@@ -13,12 +13,13 @@ export async function getShoes() {
   return shoes;
 }
 
-export async function handleDelete(shoe_id, id) {
-  await sql`DELETE FROM reviews WHERE id=${id}`;
-  revalidatePath(`/shoes/${shoe_id}`);
+export async function handleDelete(review) {
+  await sql`DELETE FROM reviews WHERE review.id = ${review.id}`;
+  console.log("button clicked");
+  // revalidatePath(`/shoes/${shoe_id}`);
 }
 
-export async function handleUpdate(values, id) {
-  await sql`UPDATE reviews SET ${values} WHERE id=${id}`;
-  revalidatePath(`/shoes/${shoe_id}`);
-}
+// export async function handleUpdate(values, id) {
+//   await sql`UPDATE reviews SET ${values} WHERE id=${id}`;
+//   revalidatePath(`/shoes/${shoe_id}`);
+// }

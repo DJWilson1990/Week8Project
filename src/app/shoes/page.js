@@ -11,7 +11,7 @@ export default async function Page() {
       {shoes.map((shoe) => (
         <div
           key={shoe.id}
-          className="m-5 p-2 border align-center w-80 h-80 trucate overflow-auto scrollbar-hide "
+          className="m-5 p-2 border align-center w-80 h-80 trucate overflow-auto"
         >
           <Link href={`/shoes/${shoe.id}`}>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
