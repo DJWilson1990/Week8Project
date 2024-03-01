@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import ReviewBtn from "@/app/components/ReviewBtn";
+import BackBtn from "@/app/components/BackBtn";
 
 export default async function Page({ params }) {
   const shoe = (await sql`SELECT * FROM shoes WHERE id = ${params.id}`).rows[0];
@@ -10,17 +11,20 @@ export default async function Page({ params }) {
   ).rows;
 
   return (
-    <div>
-      <h1 className="text-lg font-bold">{shoe.shoe_name}</h1>
-      <p>{shoe.description}</p>
+    <div className="border m-8 p-4 ">
+      <h1 className="text-lg font-bold p-4">{shoe.shoe_name}</h1>
+      <p className="p-4">{shoe.description}</p>
       <ReviewBtn link={`/review/${shoe.id}`} />
       {reviews.map((review) => (
-        <div key={review.id}>
+        <div key={review.id} className="border m-2 p-4">
           <Link href={`/review/${shoe.id}`}>
             <p>{review.review}</p>
           </Link>
+          <p>{review.rating} Stars</p>
+          <p className="font-semibold">{review.name}</p>
         </div>
       ))}
+      <BackBtn />
     </div>
   );
 }

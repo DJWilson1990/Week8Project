@@ -1,7 +1,10 @@
 import { sql } from "@vercel/postgres";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import BackBtn from "@/app/components/BackBtn";
 
 export default async function Page({ params }) {
+  // revalidatePath();
   const brand = (await sql`SELECT * FROM brands WHERE id = ${params.id}`)
     .rows[0];
 
@@ -10,16 +13,20 @@ export default async function Page({ params }) {
   ).rows;
 
   return (
-    <div>
+    <div className="flex flex-row flex-wrap justify-center">
       <h1 className="m-4 text-xl font-bold text-center">{brand.brand_name}</h1>
       {shoes.map((shoe) => (
-        <div key={shoe.id} className="border m-4 p-2">
+        <div
+          key={shoe.id}
+          className="m-5 p-2 border align-center w-80 h-80 trucate overflow-auto scrollbar-hide"
+        >
           <Link href={`/shoes/${shoe.id}`}>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
           </Link>
-          <p>{shoe.short_description}</p>
+          <p className="text-sm m-2">{shoe.short_description}</p>
         </div>
       ))}
+      <BackBtn />
     </div>
   );
 }

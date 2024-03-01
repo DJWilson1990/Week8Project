@@ -2,6 +2,7 @@ import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import SubmitBtn from "@/app/components/SubmitBtn";
+import BackBtn from "@/app/components/BackBtn";
 
 export default async function Page({ params }) {
   async function handleReview(formData) {
@@ -23,6 +24,8 @@ export default async function Page({ params }) {
         action={handleReview}
         className="m-4 p-4 flex flex-col justify-center mx-auto"
       >
+        <label className="m-4">Name</label>
+        <input className="m-4 border" name="name" placeholder="Name" />
         <label className="m-4">Review</label>
         <textarea className="m-4 border" name="review" placeholder="Review" />
         <label className="m-4">Rating</label>
@@ -34,6 +37,7 @@ export default async function Page({ params }) {
         />
         <SubmitBtn />
       </form>
+      <BackBtn />
     </div>
   );
 }

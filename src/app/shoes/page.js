@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import { getShoes } from "../utils/utils";
+import BackBtn from "../components/BackBtn";
 
 export default async function Page() {
   const shoes = await getShoes();
@@ -18,6 +19,7 @@ export default async function Page() {
           </Link>
         </div>
       ))}
+      <BackBtn />
     </div>
   );
 }
