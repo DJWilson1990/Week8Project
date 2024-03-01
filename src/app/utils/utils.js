@@ -13,9 +13,9 @@ export async function getShoes() {
   return shoes;
 }
 
-export async function handleDelete(id) {
+export async function handleDelete(shoe_id, id) {
   await sql`DELETE FROM reviews WHERE id=${id}`;
-  // revalidatePath(`/review`);
+  revalidatePath(`/shoes/${shoe_id}`);
 }
 
 export async function handleUpdate(values, id) {

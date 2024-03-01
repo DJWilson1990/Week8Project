@@ -1,6 +1,7 @@
 "use client";
 
 import { handleDelete } from "../utils/utils";
+import { handleUpdate } from "../utils/utils";
 
 export default function DeleteBtn({ id }) {
   return (
