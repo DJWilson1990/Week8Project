@@ -2,6 +2,7 @@ import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import ReviewBtn from "@/app/components/ReviewBtn";
 import BackBtn from "@/app/components/BackBtn";
+import DeleteBtn from "@/app/components/DeleteBtn";
 
 export default async function Page({ params }) {
   const shoe = (await sql`SELECT * FROM shoes WHERE id = ${params.id}`).rows[0];
@@ -22,6 +23,7 @@ export default async function Page({ params }) {
           </Link>
           <p>{review.rating} Stars</p>
           <p className="font-semibold">{review.name}</p>
+          <DeleteBtn />
         </div>
       ))}
       <BackBtn />
