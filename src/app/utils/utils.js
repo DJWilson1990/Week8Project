@@ -8,8 +8,16 @@ export async function getBrands() {
   return brands;
 }
 
-export async function getShoes() {
-  const shoes = (await sql`SELECT * FROM shoes`).rows;
+export async function getShoes(orderBy, direction) {
+  let queryString = "SELECT * FROM shoes";
+  if (orderBy) {
+    queryString = queryString + ` ORDER BY ${orderBy}`;
+
+    if (direction) {
+      queryString = queryString + ` ${direction}`;
+    }
+  }
+  const shoes = (await sql.query(queryString)).rows;
   return shoes;
 }
 
