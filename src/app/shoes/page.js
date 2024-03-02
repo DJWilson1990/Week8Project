@@ -2,12 +2,15 @@ import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import { getShoes } from "../utils/utils";
 import BackBtn from "../components/BackBtn";
+import { useParams, useSearchParams } from "react-router-dom";
+// import SortForm from "../utils/utils";
 
 export default async function Page() {
   const shoes = await getShoes();
 
   return (
     <div className="flex flex-row flex-wrap justify-center">
+      {/* <SortForm /> */}
       {shoes.map((shoe) => (
         <div
           key={shoe.id}

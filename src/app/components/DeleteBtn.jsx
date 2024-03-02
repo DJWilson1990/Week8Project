@@ -1,13 +1,14 @@
 "use client";
 
-import { handleDelete } from "../utils/utils";
+import { deleteReview } from "../utils/utils";
 // import { handleUpdate } from "../utils/utils";
 
-export default function DeleteBtn({ id }) {
+export default function DeleteBtn({ params }) {
   return (
     <button
+      type="button"
       className="m-2 p-2 border text-xs rounded-full"
-      onClick={handleDelete}
+      onClick={() => deleteReview(params.review_id, params.shoe_id)}
     >
       X
     </button>

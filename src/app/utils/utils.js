@@ -13,13 +13,8 @@ export async function getShoes() {
   return shoes;
 }
 
-export async function handleDelete(review) {
-  await sql`DELETE FROM reviews WHERE review.id = ${review.id}`;
+export async function deleteReview(review_id, shoe_id) {
+  await sql`DELETE FROM reviews WHERE id = ${review_id}`;
   console.log("button clicked");
-  // revalidatePath(`/shoes/${shoe_id}`);
+  revalidatePath(`/shoes/${shoe_id}`);
 }
-
-// export async function handleUpdate(values, id) {
-//   await sql`UPDATE reviews SET ${values} WHERE id=${id}`;
-//   revalidatePath(`/shoes/${shoe_id}`);
-// }

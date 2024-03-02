@@ -10,8 +10,9 @@ export default async function Page({ params }) {
     const review = formData.get("review");
     const rating = Number(formData.get("rating"));
     const shoe_id = Number(params.id);
+    const name = formData.get("name");
 
-    await sql`INSERT INTO reviews (review, rating, shoe_id) VALUES (${review}, ${rating}, ${shoe_id})`;
+    await sql`INSERT INTO reviews (review, rating, shoe_id, name) VALUES (${review}, ${rating}, ${shoe_id}, ${name})`;
 
     revalidatePath(`/shoes/${shoe_id}`);
 
