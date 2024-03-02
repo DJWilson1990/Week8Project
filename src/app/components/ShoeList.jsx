@@ -8,6 +8,7 @@ export default async function ShoeList({ params }) {
   const orderBy = params.orderBy;
   const direction = params.direction;
   const shoes = await getShoes(orderBy, direction);
+  console.log(shoes);
   return (
     <div className="flex flex-row flex-wrap justify-center">
       {shoes.map((shoe) => (

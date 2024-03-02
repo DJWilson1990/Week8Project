@@ -5,17 +5,19 @@ import { getShoes } from "../utils/utils";
 import ShoeList from "./ShoeList";
 
 export default async function ShoeSort() {
-  let shoes = await getData();
+  // let shoes = await getData();
+  // console.log(shoes);
   let sortOrder;
   let direction;
 
-  async function getData(sortOrder, direction) {
-    return await getShoes(sortOrder, direction);
-  }
+  // async function getData(sortOrder, direction) {
+  //   return await getShoes(sortOrder, direction);
+  // }
 
   async function handleSubmit(formData) {
     "use server";
     console.log("handleSubmit");
+    console.log(formData);
     sortOrder = formData.get("sortOrder");
     direction = formData.get("direction");
     shoes = await getData(sortOrder, direction);
@@ -29,10 +31,8 @@ export default async function ShoeSort() {
       <form action={handleSubmit}>
         <label>
           Sort by:
-          <select name="sortOrder">
-            <option value="shoe_name" selected>
-              Name
-            </option>
+          <select name="sortOrder" defaultValue="shoe_name">
+            <option value="shoe_name">Name</option>
             <option value="rating">Rating</option>
           </select>
         </label>
