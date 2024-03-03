@@ -1,5 +1,3 @@
-import ShoeSort from "./ShoeSort";
-import BackBtn from "./BackBtn";
 import { getShoes } from "../utils/utils";
 import Link from "next/link";
 

@@ -11,7 +11,7 @@ export default async function Page({ params }) {
   const shoes = (
     await sql`SELECT * FROM shoes WHERE shoes.brand_id = ${params.id}`
   ).rows;
-
+  console.log(brand);
   return (
     <div className="flex flex-row flex-wrap justify-center">
       <h1 className="m-4 text-xl font-bold text-center">{brand.brand_name}</h1>
