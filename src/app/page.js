@@ -3,9 +3,5 @@ import Image from "next/image";
 import runBG from "@/../public/runBG.jpg";
 
 export default function Page() {
-  return (
-    <div>
-      <AnimateTitle className="z-1" />
-    </div>
-  );
+  return <div></div>;
 }

@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Image from "next/image";
 import runBG from "@/../public/runBG.jpg";
 import AnimateTitle from "./components/AnimateTitle";
+import { revalidatePath } from "next/cache";
 
 const inter = Inter({ subsets: ["latin"] });
 export const main_font = Archivo_Narrow({ subsets: ["latin"] });
@@ -14,6 +15,8 @@ export const main_font = Archivo_Narrow({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
+  revalidatePath("/");
+
   return (
     <html lang="en">
       <body className={inter.className}>
