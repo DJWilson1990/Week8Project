@@ -1,6 +1,9 @@
 import { Inter, Archivo, Archivo_Narrow } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
+import Image from "next/image";
+import runBG from "@/../public/runBG.jpg";
+import AnimateTitle from "./components/AnimateTitle";
 
 const inter = Inter({ subsets: ["latin"] });
 export const main_font = Archivo_Narrow({ subsets: ["latin"] });
@@ -14,9 +17,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Nav />
-        {children}
+        <div className="absolute">
+          <Nav />
+          <Image src={runBG} alt="background image" className="bg-contain" />
+          <AnimateTitle className="relative top-4 left-4" />
+          {children}
+        </div>
       </body>
     </html>
   );
 }
+
+// className="relative h-screen"

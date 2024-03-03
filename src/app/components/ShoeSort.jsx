@@ -3,6 +3,7 @@
 import { useSearchParams } from "react-router-dom";
 import { getShoes } from "../utils/utils";
 import ShoeList from "./ShoeList";
+import BackBtn from "./BackBtn";
 
 export default async function ShoeSort() {
   // let shoes = await getData();
@@ -26,21 +27,34 @@ export default async function ShoeSort() {
   }
 
   return (
-    <div>
-      <p>Shoe sort:</p>
-      <form action={handleSubmit}>
-        <label>
-          Sort by:
-          <select name="sortOrder" defaultValue="shoe_name">
-            <option value="shoe_name">Name</option>
-            <option value="rating">Rating</option>
-          </select>
-        </label>
-        <input type="checkbox" value="desc" name="direction" id="direction" />
-        <button type="submit">Apply sort</button>
-      </form>
-      {/* <ShoeList shoes={orderBy} /> */}
+    <div className=" m-4 h-10">
+      <div className="flex justify-between">
+        <form action={handleSubmit} className="flex items-center p-1">
+          <label>
+            Sort by:
+            <select name="sortOrder" defaultValue="shoe_name" className="mr-4">
+              <option value="shoe_name">Name</option>
+              <option value="rating">Rating</option>
+            </select>
+          </label>
+          Descending order:
+          <input
+            type="checkbox"
+            value="desc"
+            name="direction"
+            id="direction"
+            className="mr-4 ml-1"
+          />
+          <button
+            type="submit"
+            className="border m-2 p-1 text-xs hover:text-white hover:bg-black"
+          >
+            Apply sort
+          </button>
+        </form>
+      </div>
       <ShoeList params={{ orderBy: sortOrder, direction: direction }} />
+      <BackBtn />
     </div>
   );
 }

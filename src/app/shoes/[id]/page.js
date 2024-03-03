@@ -12,7 +12,7 @@ export default async function Page({ params }) {
   ).rows;
 
   return (
-    <div className="border m-8 p-4 ">
+    <div className="border m-8 p-4 relative">
       <h1 className="text-lg font-bold p-4">{shoe.shoe_name}</h1>
       <p className="p-4">{shoe.description}</p>
       <ReviewBtn link={`/review/${shoe.id}`} />
@@ -28,7 +28,6 @@ export default async function Page({ params }) {
           </div>
         </div>
       ))}
-      <BackBtn />
     </div>
   );
 }

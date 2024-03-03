@@ -9,7 +9,7 @@ export default function AnimateTitle() {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 2 }}
     >
-      <div className="flex flex-col items-center justify-center h-80 m-9">
+      <div className="flex flex-col items-center justify-center h-80 m-9 z-10 text-black">
         <h1 className="text-5xl m-2 font-bold">RUNNING SHOE</h1>
         <h1 className="text-7xl tracking-wider font-bold">REVIEWS</h1>
       </div>

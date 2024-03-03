@@ -10,7 +10,7 @@ export default async function ShoeList({ params }) {
   const shoes = await getShoes(orderBy, direction);
   console.log(shoes);
   return (
-    <div className="flex flex-row flex-wrap justify-center">
+    <div className="flex flex-row flex-wrap justify-center m-8">
       {shoes.map((shoe) => (
         <div
           key={shoe.id}
@@ -18,11 +18,10 @@ export default async function ShoeList({ params }) {
         >
           <Link href={`/shoes/${shoe.id}`}>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
-            <p className="text-sm m-2">{shoe.short_description}</p>
+            <p className="text-sm m-2 p-2">{shoe.short_description}</p>
           </Link>
         </div>
       ))}
-      <BackBtn />
     </div>
   );
 }

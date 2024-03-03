@@ -14,7 +14,7 @@ export default async function Page() {
         {brands.map((brand) => (
           <div
             key={brand.id}
-            className="m-5 p-2 border place-items-center  w-70 h-70"
+            className="m-5 mt-28 p-2 border place-items-center  w-70 h-70"
           >
             <AnimateCards>
               <Link href={`/brands/${brand.id}`}>

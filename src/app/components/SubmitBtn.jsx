@@ -11,7 +11,7 @@ export default function SubmitBtn() {
       <button
         disabled={pending}
         type="submit"
-        className="m-4 p-2 border font-main_font"
+        className="m-4 p-2 border font-main_font hover:text-white hover:bg-black"
       >
         {pending ? "Adding review..." : "Add review"}
       </button>
