@@ -35,6 +35,8 @@ export default async function Page({ params }) {
           name="rating"
           placeholder="Rating"
           type="number"
+          min="0"
+          max="5"
         />
         <SubmitBtn />
       </form>

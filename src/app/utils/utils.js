@@ -9,7 +9,8 @@ export async function getBrands() {
 }
 
 export async function getShoes(orderBy, direction) {
-  let queryString = "SELECT * FROM shoes";
+  let queryString =
+    "SELECT s.shoe_name, s.id, s.short_description, s.description, s.shoeimg_url, s.rating, b.brand_name FROM shoes AS s INNER JOIN brands AS b ON s.brand_id = b.id";
   if (orderBy) {
     queryString = queryString + ` ORDER BY ${orderBy}`;
 

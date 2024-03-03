@@ -1,5 +1,6 @@
 import { getShoes } from "../utils/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function ShoeList({ params }) {
   console.log(params);
@@ -15,7 +16,17 @@ export default async function ShoeList({ params }) {
           className="m-5 p-2 border align-center w-80 h-80 trucate overflow-auto"
         >
           <Link href={`/shoes/${shoe.id}`}>
+            <div className="h-16 w-16">
+              <Image
+                className="m-2"
+                src={shoe.shoeimg_url ?? "https://placehold.co/70x70/png"}
+                alt="running shoe image"
+                width={70}
+                height={70}
+              />
+            </div>
             <p className="m-4 text-lg font-bold">{shoe.shoe_name}</p>
+            <p className="ml-4 text-xs">{shoe.brand_name}</p>
             <p className="text-sm m-2 p-2">{shoe.short_description}</p>
           </Link>
         </div>

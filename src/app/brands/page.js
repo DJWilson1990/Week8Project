@@ -20,7 +20,6 @@ export default async function Page() {
               <Link href={`/brands/${brand.id}`}>
                 <p className="text-center">{brand.brand_name}</p>
                 <Image
-                  className="m-2"
                   src={brand.img_url}
                   alt="brand logo"
                   width={200}
